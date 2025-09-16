@@ -3,11 +3,11 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 import numpy as np
 from data import PeopleDaily
-checkpoint=r"D:\LLM\LLM-main\Sequence Labeling\config"
+checkpoint="bert-base-chinese"
 tokenizer=AutoTokenizer.from_pretrained(checkpoint)
-train_data = PeopleDaily('./example.train.txt')
-valid_data = PeopleDaily('./example.dev.txt')
-test_data = PeopleDaily('./example.test.txt')
+train_data = PeopleDaily('data/china-people-daily-ner-corpus/example.train')
+valid_data = PeopleDaily('data/china-people-daily-ner-corpus/example.dev')
+test_data = PeopleDaily('data/china-people-daily-ner-corpus/example.test')
 id2label = {0:'O'}
 for c in list(sorted(train_data.categories)):
     id2label[len(id2label)] = f"B-{c}"
