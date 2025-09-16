@@ -5,9 +5,9 @@ import numpy as np
 from data import PeopleDaily
 checkpoint="bert-base-chinese"
 tokenizer=AutoTokenizer.from_pretrained(checkpoint)
-train_data = PeopleDaily('data/china-people-daily-ner-corpus/example.train')
-valid_data = PeopleDaily('data/china-people-daily-ner-corpus/example.dev')
-test_data = PeopleDaily('data/china-people-daily-ner-corpus/example.test')
+train_data = PeopleDaily('./example.train')
+valid_data = PeopleDaily('./example.dev')
+test_data = PeopleDaily('./example.test')
 id2label = {0:'O'}
 for c in list(sorted(train_data.categories)):
     id2label[len(id2label)] = f"B-{c}"
